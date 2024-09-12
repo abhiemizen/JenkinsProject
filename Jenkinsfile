@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deploy') {
     steps {
-        sshagent(credentials: ['deployment-server-ssh-credentials']) {
+        sshagent(credentials: ['jenkinsserverprivatekey']) {
             sh '''
                 ssh -o StrictHostKeyChecking=no -p 2286 emizentechdev@14.99.153.8 '
                 sudo git clone https://github.com/abhiemizen/JenkinsProject.git /var/www/domains/source
